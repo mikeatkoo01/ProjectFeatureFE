@@ -4,7 +4,7 @@ function Item(){
 
 return (
 <div>
-    <createItem/>
+    <CreateItem/>
 </div>
 
 )
