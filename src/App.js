@@ -14,8 +14,8 @@ function App() {
 
         
           <nav>
-            <Link to='/'></Link>
-            <Link to='/items'></Link>
+            <Link to='/'>Home</Link>
+            <Link to='/items'>Items</Link>
 
           </nav>
        
