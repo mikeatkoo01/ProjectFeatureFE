@@ -6,7 +6,7 @@ function CreateItem() {
     const [id, setId] = useState("");
     const [itemName, setItemName] = useState("");
     const [price, setPrice] = useState("");
-    const [quantity, setQuanity] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [items, setItems] = useState([]);
 
     function getItem() {
@@ -15,7 +15,7 @@ function CreateItem() {
             setItems(response.data)
 
         })
-
+    }
         function checkItem() {
 
                       axios.get("http://localhost:8082/item/get").then(response => {
@@ -41,7 +41,7 @@ axios.post("http://localhost:8082/item/create",
     console.log(response);
     setItemName("");
     setPrice("");
-    setQuanity("");
+    setQuantity("");
     setItems();
 }).catch(err => console.error(err))
 
@@ -71,6 +71,6 @@ return (
     onChange={(e) => setQuantity(e.target.value)}
 </input>
 </div>
-    )}}
+    )}
 
 export default CreateItem; 
