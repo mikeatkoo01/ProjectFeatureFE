@@ -1,13 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CreateItem() {
 
-    const [id, setId] = useState("");
+    // const [id, setId] = useState("");
     const [itemName, setItemName] = useState("");
     const [price, setPrice] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [items, setItems] = useState([]);
+    // const [items, setItems] = useState([]);
 
     function getItem() {
 

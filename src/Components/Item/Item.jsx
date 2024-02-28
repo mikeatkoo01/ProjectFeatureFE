@@ -7,7 +7,7 @@ return (
     <CreateItem/>
 </div>
 
-)
+);
 
 }
 
