@@ -1,76 +1,89 @@
+
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function CreateItem() {
+  const [itemName, setItemName] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
 
-    // const [id, setId] = useState("");
-    const [itemName, setItemName] = useState("");
-    const [price, setPrice] = useState("");
-    const [quantity, setQuantity] = useState("");
-    // const [items, setItems] = useState([]);
+  function checkItem() {
+    axios.get("http://localhost:8082/item/get").then((response) => {
+      console.log(response);
+      
+      for (const item of response.data) {
+        if (
+          item.itemName &&
+          item.price &&
+          item.itemName.toLowerCase() === itemName.toLowerCase() &&
+          item.price.toLowerCase() === price.toLowerCase()
+        ) {
+          alert("Item already listed");
+          return;
+        }
+      }
+  
+    
+    }).catch(error => {
+      
+      createItem();
+    });
+  }
 
-    function getItem() {
+  function createItem() {
+    axios
+      .post("http://localhost:8082/item/create", {
+        itemName,
+        price,
+        quantity,
+      })
+      .then((response) => {
+        console.log(response);
+        setItemName("");
+        setPrice("");
+        setQuantity("");
+        alert("Item created successfully");
+      })
+      .catch((err) => console.error(err));
+  }
 
-        axios.get("http://localhost:8082/items/get").then((response) => {
-            setItems(response.data)
+  return (
+    <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          checkItem();
+        }}
+      >
+        <h1>Items</h1>
+        <label>
+          Item Name
+          <input
+            type="text"
+            value={itemName}
+            onChange={(e) => setItemName(e.target.value)}
+          />
+        </label>
+        <label>
+          Item Price
+          <input
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </label>
+        <label>
+          Item Quantity
+          <input
+            type="text"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </label>
+        <button type="submit">Create Item</button>
+      </form>
+    </div>
+  );
+}
 
-        })
-    }
-        function checkItem() {
-
-                      axios.get("http://localhost:8082/item/get").then(response => {
-                       console.log(response)
-                       for (const items of response.data) {
-                              if (items.itemName.toLowerCase() === itemName && items.price.toLowerCase() === price) {
-                                    alert("Item already listed")
-                                   return;
-                                 }
-                            }
-                       })
-                    }
- 
-   
-
-axios.post("http://localhost:8082/item/create",
-{
-    itemName,
-    price,
-    quantity
-})
-.then(response => {
-    console.log(response);
-    setItemName("");
-    setPrice("");
-    setQuantity("");
-    setItems();
-}).catch(err => console.error(err))
-
-return (
-<div>
-
-<form onSubmit={(e) => {
-    e.preventDefault();
-    checkItem();
-
-}} />
-
-<h1>Items</h1>
-<label>Item Name</label>
-<input>
-    value={itemName}
-    onChange={(e) => setItemName(e.target.value)}
-</input>
-<label>Item Price</label>
-<input>
-    value={price}
-    onChange={(e) => setPrice(e.target.value)}
-</input>
-<label>Item Quanity</label>
-<input>
-    value={quantity}
-    onChange={(e) => setQuantity(e.target.value)}
-</input>
-</div>
-    )}
-
-export default CreateItem; 
+export default CreateItem;
