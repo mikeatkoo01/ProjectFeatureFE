@@ -15,7 +15,7 @@ function CreateItem() {
         if (
           item.name &&
           item.price &&
-          item.name.toLowerCase() === name.toLowerCase() &&
+          item.name.toLowerCase() !== name.toLowerCase() &&
           item.price.toLowerCase() === price.toLowerCase()
         ) {
           alert("Item already listed");
@@ -40,8 +40,8 @@ function CreateItem() {
       .then((response) => {
         console.log(response);
         setName("");
-        setPrice("");
-        setQuantity("");
+        setPrice(0.00);
+        setQuantity(0);
         alert("Item created successfully");
       })
       .catch((err) => console.error(err));
