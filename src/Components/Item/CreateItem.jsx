@@ -15,7 +15,7 @@ function CreateItem() {
         if (
           item.name &&
           item.price &&
-          item.name.toLowerCase() === name.toLowerCase() &&
+          item.name.toLowerCase() !== name.toLowerCase() &&
           item.price.toLowerCase() === price.toLowerCase()
         ) {
           alert("Item already listed");
