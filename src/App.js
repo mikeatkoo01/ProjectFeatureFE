@@ -16,6 +16,7 @@ function App() {
           <nav>
             <Link to='/'>Home</Link>
             <Link to='/items'>Items</Link>
+            <Link to='/carts'>Carts</Link>
 
           </nav>
        
@@ -23,6 +24,7 @@ function App() {
  
  <Route path='/' element={<Home/>}/>
  <Route path='/items' element={<Item/>}/>
+ <Route path='/carts' element={<Cart/>}/>
 
 
 </Routes>
