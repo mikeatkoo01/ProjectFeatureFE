@@ -80,7 +80,7 @@ function CreateItem() {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </label>
-        <button type="submit">Create Item</button>
+        <button type="submit" class="btn btn-primary">Create Item</button>
       </form>
     </div>
   );
