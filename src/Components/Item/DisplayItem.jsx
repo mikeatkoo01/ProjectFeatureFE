@@ -15,7 +15,7 @@ function DisplayItem() {
 
   useEffect(() => {
     getItem();
-  }, []);
+  },);
 
   const itemList = [];
 
