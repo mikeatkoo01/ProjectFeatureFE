@@ -3,9 +3,9 @@ import axios from "axios";
 import { useState } from "react";
 
 function CreateItem() {
-  const [itemName, setItemName] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0.00);
+  const [quantity, setQuantity] = useState(0);
 
   function checkItem() {
     axios.get("http://localhost:8082/item/get").then((response) => {
@@ -13,9 +13,9 @@ function CreateItem() {
       
       for (const item of response.data) {
         if (
-          item.itemName &&
+          item.name &&
           item.price &&
-          item.itemName.toLowerCase() === itemName.toLowerCase() &&
+          item.name.toLowerCase() === name.toLowerCase() &&
           item.price.toLowerCase() === price.toLowerCase()
         ) {
           alert("Item already listed");
@@ -33,13 +33,13 @@ function CreateItem() {
   function createItem() {
     axios
       .post("http://localhost:8082/item/create", {
-        itemName,
+        name,
         price,
         quantity,
       })
       .then((response) => {
         console.log(response);
-        setItemName("");
+        setName("");
         setPrice("");
         setQuantity("");
         alert("Item created successfully");
@@ -60,8 +60,8 @@ function CreateItem() {
           Item Name
           <input
             type="text"
-            value={itemName}
-            onChange={(e) => setItemName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
         <label>

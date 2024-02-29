@@ -8,6 +8,7 @@ function DisplayItem() {
     axios
       .get("http://localhost:8082/item/get")
       .then((response) => {
+        // console.log(response.data); Creates infinite loop
         setItems(response.data);
       })
       .catch(console.log);
@@ -22,7 +23,7 @@ function DisplayItem() {
   for (const singleItem of items) {
     itemList.push(
       <div key={singleItem.id}>
-        {singleItem.id} - {singleItem.itemName} - {singleItem.price}
+        {singleItem.id} - {singleItem.name} - {singleItem.price} - {singleItem.quantity}
       </div>
     );
   }
