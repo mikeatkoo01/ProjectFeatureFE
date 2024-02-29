@@ -38,7 +38,7 @@ function CreateCart() {
                 alert("Cart created successfully");
             })
             .catch((err) => console.error(err));
-
+        }
 
         return (
             <div>
@@ -64,6 +64,6 @@ function CreateCart() {
             </div>
         );
     }
-}
+
 
 export default CreateCart;
