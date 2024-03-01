@@ -15,18 +15,20 @@ function CreateItem() {
         if (
           item.name &&
           item.price &&
-          item.name.toLowerCase() !== name.toLowerCase() &&
-          item.price.toLowerCase() === price.toLowerCase()
+
+          item.name.toLowerCase() === name.toLowerCase() 
+          // item.price.toLowerCase() === price.toLowerCase()
+
         ) {
           alert("Item already listed");
           return;
-        }
+        } 
       }
   
-    
+      createItem();
     }).catch(error => {
       
-      createItem();
+     
     });
   }
 
@@ -40,19 +42,29 @@ function CreateItem() {
       .then((response) => {
         console.log(response);
         setName("");
-        setPrice("");
-        setQuantity("");
+        setPrice(0.00);
+        setQuantity(0);
         alert("Item created successfully");
       })
       .catch((err) => console.error(err));
   }
+
+  // function removeItem() {
+  //   axios.delete("http://localhost:8082/item/remove/")
+  //     .then(res => { 
+  //       axios.get("http://localhost:8082/get").then(response => {setName(response.data); console.log(response)})
+  //       .catch(err => console.error(err))
+
+  //     })
+  // } -- May require a different component. 
 
   return (
     <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          checkItem();
+        checkItem()
+          //createItem();
         }}
       >
         <h1>Items</h1>
@@ -80,7 +92,8 @@ function CreateItem() {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </label>
-        <button type="submit">Create Item</button>
+        <button type="submit" class="btn btn-primary">Create Item</button>
+       
       </form>
     </div>
   );
