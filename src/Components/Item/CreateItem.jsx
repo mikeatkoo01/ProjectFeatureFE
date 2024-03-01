@@ -15,18 +15,18 @@ function CreateItem() {
         if (
           item.name &&
           item.price &&
-          item.name.toLowerCase() !== name.toLowerCase() &&
-          item.price.toLowerCase() === price.toLowerCase()
+          item.name.toLowerCase() === name.toLowerCase() 
+          // item.price.toLowerCase() === price.toLowerCase()
         ) {
           alert("Item already listed");
           return;
-        }
+        } 
       }
   
-    
+      createItem();
     }).catch(error => {
       
-      createItem();
+     
     });
   }
 
@@ -61,7 +61,8 @@ function CreateItem() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createItem();
+        checkItem()
+          //createItem();
         }}
       >
         <h1>Items</h1>
