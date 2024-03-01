@@ -61,7 +61,7 @@ function CreateItem() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          checkItem();
+          createItem();
         }}
       >
         <h1>Items</h1>
