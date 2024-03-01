@@ -12,7 +12,7 @@ function CreateCart() {
             for (const cart of response.data) {
                 if (
                     cart.customer &&
-                    cart.customer.toLowerCase() !== customer.toLowerCase()
+                    cart.customer.toLowerCase() === customer.toLowerCase()
                 ) {
                     alert("Cart already listed");
                     return;
@@ -33,7 +33,7 @@ function CreateCart() {
 
             })
             .then((response) => {
-                console.log(response);
+              //  console.log(response);
                 setCustomer("");
                 alert("Cart created successfully");
             })
@@ -59,7 +59,7 @@ function CreateCart() {
                     </label>
 
 
-                    <button type="submit">Create Cart</button>
+                    <button type="submit" class="btn btn-primary">Create Cart</button>
                 </form>
             </div>
         );
