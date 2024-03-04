@@ -18,8 +18,8 @@ function App() {
             <div class="container-fluid">
               
             <Link class="nav-item" to='/'>Home</Link>
-            <Link class="nav-item" to='/items'>Items</Link>
-            <Link class="nav-item" to='/carts'>Carts</Link>
+            <Link class="nav-item" to='/items'>Inventory</Link>
+            <Link class="nav-item" to='/carts'>Orders</Link>
             </div>
           </nav>
        

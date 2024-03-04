@@ -55,7 +55,6 @@ function CreateCart() {
                         onChange={(e) => setCustomer(e.target.value)}
                     />
                 </label>
-
                 <button type="submit" className="btn btn-primary">Create Cart</button>
             </form>
         </div>
