@@ -8,7 +8,6 @@ function DisplayCart() {
     axios
       .get("http://localhost:8082/cart/get")
       .then((response) => {
-        // console.log(response.data); Creates infinite loop
         setCarts(response.data);
       })
       .catch(console.log);
@@ -16,19 +15,22 @@ function DisplayCart() {
 
   useEffect(() => {
     getCart();
-  },);
+  }, []);
 
-  const cartList = [];
-
-  for (const singleCart of carts) {
-    cartList.push(
-      <div key={singleCart.id}>
-        {singleCart.id} - {singleCart.customer} 
-      </div>
-    );
-  }
-
-  return <div>{cartList}</div>;
+  return (
+    <div className="cart-container">
+      {carts.map((singleCart) => (
+        <div key={singleCart.id} className="cart-card">
+          <p>{singleCart.id} - {singleCart.customer}</p>
+          <ul>
+            {singleCart.item.map((item) => (
+              <li key={item.id}>{item.id} - {item.name} - {item.price}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default DisplayCart;

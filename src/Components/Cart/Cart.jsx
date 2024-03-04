@@ -7,6 +7,7 @@ function Cart(){
     return (
         <div>
             <CreateCart/>
+            <br></br>
             <DisplayCart/>
         </div>
     );
