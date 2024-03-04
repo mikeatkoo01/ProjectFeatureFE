@@ -44,14 +44,14 @@ function DisplayCart() {
           <div key={singleCart.id} className="col-md-4 mb-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">{singleCart.customer}</h5>
+                <h5 className="card-title">{singleCart.id}: {singleCart.customer}</h5>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <b>Items</b>
                   </li>
                   {singleCart.item.map((item) => (
                     <li key={item.id} className="list-group-item">
-                      {item.id} - {item.name} - {item.price}
+                      {item.id} - {item.name} - £{item.price}
                     </li>
                   ))}
                   <li className="list-group-item">
@@ -74,7 +74,7 @@ function DisplayCart() {
                       className="btn btn-primary"
                       onClick={() => {
                         cartTotal = calculateTotal(singleCart);
-                        alert(`Total for ${singleCart.customer}'s cart: $${cartTotal.toFixed(2)}`);
+                        alert(`Total for ${singleCart.customer}'s cart: £${cartTotal.toFixed(2)}`);
                       }}
                     >
                       Calculate Total (inc. service charge)

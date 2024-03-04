@@ -28,8 +28,18 @@
   color: #61dafb;
 }
 
+.nav{
+  color:red;
+}
 
-/* // Display Carts  */
+.navBarLink {
+  margin: 5px;
+}
+
+.active-link {
+  color: red;
+}
+
 .cart-container {
   display: flex;
   gap: 20px;
