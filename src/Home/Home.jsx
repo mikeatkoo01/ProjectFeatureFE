@@ -1,8 +1,10 @@
+ import TeamPhoto from './TeamPhoto.png'; 
+
 function Home() {
     return (
         <div>
             <h1>About Us: L²</h1>
-            <h3>
+            <h4>
 
                <p> Welcome to L², where the convergence of passion for software engineering and an appreciation for the extraordinary has given birth to a unique online shopping experience. </p>
                
@@ -16,10 +18,11 @@ function Home() {
 
                 At L², we believe in pushing boundaries, embracing the extraordinary, and challenging the status quo. Our team may be small, but our ambitions are grand. We invite you to explore our digital emporium, where innovation meets curiosity, and discover treasures that transcend the ordinary.
 
-               <p>Thank <b>you</b> for being a part of our journey. Your adventure begins here at L².</p> </h3>
+               <p>Thank <b>you</b> for being a part of our journey. Your adventure begins here at L².</p> </h4>
 
-               <h8>UPDATE: Attendance to the Easter Weekend team excursion has become mandatory. Disciplinary action may be taken against non-attendees.</h8>
-
+               <h8>UPDATE: Attendance to the Easter Weekend team excursion has become <u>mandatory</u>. Disciplinary action may be taken against non-attendees.</h8>
+<br></br>
+        <img src={TeamPhoto} style={{height:300, width:300}}/> 
         </div>
     )
 

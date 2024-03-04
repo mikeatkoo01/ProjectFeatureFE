@@ -49,21 +49,12 @@ function CreateItem() {
       .catch((err) => console.error(err));
   }
 
-  // function removeItem() {
-  //   axios.delete("http://localhost:8082/item/remove/")
-  //     .then(res => { 
-  //       axios.get("http://localhost:8082/get").then(response => {setName(response.data); console.log(response)})
-  //       .catch(err => console.error(err))
-
-  //     })
-  // } -- May require a different component. 
-
   return (
     <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-        checkItem()
+        checkItem() 
           //createItem();
         }}
       >
