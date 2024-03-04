@@ -67,7 +67,7 @@ function CreateItem() {
           //createItem();
         }}
       >
-        <h1>Items</h1>
+        <h1>Inventory</h1>
         <label>
           Item Name
           <input
