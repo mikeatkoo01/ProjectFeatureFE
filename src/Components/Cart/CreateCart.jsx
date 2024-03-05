@@ -10,7 +10,7 @@ function CreateCart() {
   const [selectedCartId, setSelectedCartId] = useState(null);
 
   useEffect(() => {
-    // Fetch available carts when the component mounts
+
     axios.get("http://localhost:8082/cart/get")
       .then((response) => {
         setCarts(response.data);
