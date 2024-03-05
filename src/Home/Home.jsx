@@ -19,7 +19,7 @@ function Home() {
                         Welcome to L², where the convergence of passion for software engineering and an appreciation for the extraordinary has given birth to a unique online shopping experience.
                     </p>
                     <p>
-                        Our story begins with Lucy and Liam, two driven individuals who embarked on a transformative journey through a software reskilling cohort at Lloyds Banking Group. Under the guidance of the esteemed trainer, <i>Jordan Harrison</i>, a renowned software engineer, they honed their skills and absorbed the intricacies of coding.
+                        Our story begins with Lucy and Liam, two driven individuals who embarked on a transformative journey through a software reskilling cohort at Lloyds Banking Group. Under the guidance of the infamous trainer, <i>Jordan Harrison</i>, a diabolical software engineer, they honed their skills and absorbed the intricacies of coding.
                     </p>
                     <p>
                         Lucy and Liam's original aspiration was to become software engineers for Lloyds Banking Group. However, destiny had a different path in mind. Undeterred by the twists of fate, they joined forces and ventured into the world of entrepreneurship, carving out a space for themselves in the vast digital landscape.
@@ -36,10 +36,10 @@ function Home() {
                     <p>
                         Thank <b>you</b> for being a part of our journey. Your adventure begins here at L².
                     </p>
-                    <h2>Company Updates: Attendance to the Easter Weekend team excursion has become <u>mandatory</u>. Disciplinary action may be taken against non-attendees.</h2>
+                    <h2>Company Updates:</h2>- Attendance to the Easter Weekend team excursion has become <u>mandatory</u>. Disciplinary action may be taken against non-attendees.
                     <p>
-                        We would like to remind everyone, including our esteemed CEO Lucy Yates, that it is against UK employee law to engage in any activity that inflicts physical harm or discomfort on staff members, even as a means of addressing efficiency concerns.
-                    </p>
+                       - We would like to remind everyone, including our estranged CEO Lucy Yates, that it is against UK employee law to engage in any activity that inflicts physical harm or discomfort on staff members, even as a means of addressing efficiency concerns.</p>
+                    <p>- Please can we remind all employees that speaking to the press regarding estranged CEO Lucy Yates is strictly prohibted and will carry disciplinary action.</p>
                 </div>
             ) : (
                 <div>
