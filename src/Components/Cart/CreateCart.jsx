@@ -4,16 +4,27 @@ import axios from "axios";
 function CreateCart() {
   const [customer, setCustomer] = useState("");
   const [carts, setCarts] = useState([]);
-  const [itemName, setItemName] = useState("");
-  const [itemPrice, setItemPrice] = useState(0);
-  const [itemQuantity, setItemQuantity] = useState(0);
+  // const [itemName, setItemName] = useState("");
+  // const [itemPrice, setItemPrice] = useState(0);
+  // const [itemQuantity, setItemQuantity] = useState(0);
   const [selectedCartId, setSelectedCartId] = useState(null);
+  const [items, setItems] = useState([]);
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
   useEffect(() => {
 
     axios.get("http://localhost:8082/cart/get")
       .then((response) => {
         setCarts(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+ 
+
+  axios.get("http://localhost:8082/item/get")
+      .then((response) => {
+        setItems(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -53,22 +64,20 @@ function CreateCart() {
     .catch((err) => console.error(err));
   }
 
-  function createItemInCart() {
-    if (!selectedCartId) {
-      alert("Please select a cart");
+  function addItemToCart() {
+    if (!selectedCartId || !selectedItemId) {
+      alert("Please select an item and a cart");
       return;
     }
 
-    axios.post(`http://localhost:8082/item/create`, {
-      name: itemName,
-      price: itemPrice,
-      quantity: itemQuantity,
+    axios.patch(`http://localhost:8082/item/update/${selectedItemId}`, {
+      selectedItemId,
       cart: {
         id: selectedCartId
       }
     })
       .then(() => {
-        alert("Item created in cart successfully");
+        alert("Item added to cart successfully");
       })
       .catch((err) => console.error(err));
   }
@@ -97,27 +106,17 @@ function CreateCart() {
         <h2>Add Item to Cart</h2>
         <label>
           Item Name
-          <input
-            type="text"
-            value={itemName}
-            onChange={(e) => setItemName(e.target.value)}
-          />
-        </label>
-        <label>
-          Item Price
-          <input
-            type="text"
-            value={itemPrice}
-            onChange={(e) => setItemPrice(e.target.value)}
-          />
-        </label>
-        <label>
-          Item Quantity
-          <input
-            type="text"
-            value={itemQuantity}
-            onChange={(e) => setItemQuantity(e.target.value)}
-          />
+          <select
+            value={selectedItemId}
+            onChange={(e) => setSelectedItemId(e.target.value)}
+          >
+            <option value="">Select Item</option>
+            {items.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
         </label>
         <label>
           Select Cart
@@ -136,9 +135,9 @@ function CreateCart() {
         <button
           type="button"
           className="btn btn-success"
-          onClick={createItemInCart}
+          onClick={addItemToCart}
         >
-          Create Item in Cart
+          Add Item to Cart
         </button>
       </form>
     </div>
