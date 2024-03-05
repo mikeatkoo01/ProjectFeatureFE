@@ -4,15 +4,15 @@ import axios from "axios";
 function CreateCart() {
   const [customer, setCustomer] = useState("");
   const [carts, setCarts] = useState([]);
-  // const [itemName, setItemName] = useState("");
-  // const [itemPrice, setItemPrice] = useState(0);
-  // const [itemQuantity, setItemQuantity] = useState(0);
   const [selectedCartId, setSelectedCartId] = useState(null);
   const [items, setItems] = useState([]);
   const [selectedItemId, setSelectedItemId] = useState(null);
 
   useEffect(() => {
+    fetchCartsAndItems();
+  }, []); // Empty dependency array means this effect will run once after the initial render
 
+  const fetchCartsAndItems = () => {
     axios.get("http://localhost:8082/cart/get")
       .then((response) => {
         setCarts(response.data);
@@ -20,18 +20,17 @@ function CreateCart() {
       .catch(error => {
         console.error(error);
       });
- 
 
-  axios.get("http://localhost:8082/item/get")
+    axios.get("http://localhost:8082/item/get")
       .then((response) => {
         setItems(response.data);
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  };
 
-  function checkCart() {
+  const checkCart = () => {
     axios.get("http://localhost:8082/cart/get")
       .then((response) => {
         console.log(response);
@@ -51,20 +50,21 @@ function CreateCart() {
       .catch(error => {
         console.error(error);
       });
-  }
+  };
 
-  function createCart() {
+  const createCart = () => {
     axios.post("http://localhost:8082/cart/create", {
       customer
     })
     .then((response) => {
       setCustomer("");
       alert("Cart created successfully");
+      fetchCartsAndItems(); 
     })
     .catch((err) => console.error(err));
-  }
+  };
 
-  function addItemToCart() {
+  const addItemToCart = () => {
     if (!selectedCartId || !selectedItemId) {
       alert("Please select an item and a cart");
       return;
@@ -78,9 +78,10 @@ function CreateCart() {
     })
       .then(() => {
         alert("Item added to cart successfully");
+        fetchCartsAndItems(); 
       })
       .catch((err) => console.error(err));
-  }
+  };
 
   return (
     <div>
