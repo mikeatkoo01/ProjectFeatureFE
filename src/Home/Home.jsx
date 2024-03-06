@@ -58,7 +58,7 @@ function Home() {
                 </Card>
             ) : (
                 <Card border="danger" border-3>
-                    <Card.Body>
+                    <Card.Body className="text-center">
                         <Card.Title><h1><b>REMINDER </b>to stay vigilant when logging in: </h1></Card.Title>
                         <ListGroup>
                             <ListGroupItem>Secure Your Surroundings: Be cautious of your environment and ensure privacy when logging in. Avoid public spaces for sensitive logins.</ListGroupItem>
@@ -66,7 +66,7 @@ function Home() {
                             <ListGroupItem>Protect Your Passwords: Avoid sharing passwords and update them regularly. Strong, unique passwords are your first line of defense.</ListGroupItem>
                             <ListGroupItem>Report Anomalies Promptly: If you notice anything unusual during the login process or suspect unauthorized access, report it immediately to our IT team.</ListGroupItem>
                         </ListGroup>
-                        <img src={TeamPhoto} style={{ height: 300, width: 300 }} alt="Team" />
+                        <img src={TeamPhoto} style={{ height: 300, width: 300, display: 'block', margin: 'auto' }} alt="Team" className="mx-auto d-block" />
                         <Login onLogin={handleLogin} />
                     </Card.Body>
                 </Card>
