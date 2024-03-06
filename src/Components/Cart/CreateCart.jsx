@@ -10,7 +10,7 @@ function CreateCart() {
 
   useEffect(() => {
     fetchCartsAndItems();
-  }, []); // Empty dependency array means this effect will run once after the initial render
+  }, []); 
 
   const fetchCartsAndItems = () => {
     axios.get("http://localhost:8082/cart/get")

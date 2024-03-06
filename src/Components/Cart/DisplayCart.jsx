@@ -19,7 +19,7 @@ function DisplayCart() {
     axios
       .patch(`http://localhost:8082/cart/update/${cartId}`, { customer: newCustomerName })
       .then(() => {
-        // Refresh the cart data after editing
+        
         getCart();
       })
       .catch(console.log);
