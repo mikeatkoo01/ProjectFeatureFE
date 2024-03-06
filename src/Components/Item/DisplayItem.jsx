@@ -5,27 +5,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function DisplayItem() {
   const [items, setItems] = useState([]);
 
-  function getItem() {
+  DisplayItem.getItem = function () {
     axios
       .get("http://localhost:8082/item/get")
       .then((response) => {
         setItems(response.data);
       })
-      .catch(console.log);
-  }
+      .catch(console.error);
+  };
 
   function deleteItem(itemId) {
     axios
       .delete(`http://localhost:8082/item/remove/${itemId}`)
       .then(() => {
-       
-        getItem();
+        DisplayItem.getItem();
       })
-      .catch(console.log);
+      .catch(console.error);
   }
 
   useEffect(() => {
-    getItem();
+    DisplayItem.getItem();
   }, []);
 
   return (
