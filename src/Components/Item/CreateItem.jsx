@@ -1,6 +1,6 @@
-
 import axios from "axios";
 import { useState } from "react";
+import DisplayItem from "./DisplayItem";
 
 function CreateItem() {
   const [name, setName] = useState("");
@@ -15,10 +15,7 @@ function CreateItem() {
         if (
           item.name &&
           item.price &&
-
-          item.name.toLowerCase() === name.toLowerCase() 
-          // item.price.toLowerCase() === price.toLowerCase()
-
+          item.name.toLowerCase() === name.toLowerCase()
         ) {
           alert("Item already listed");
           return;
@@ -27,8 +24,7 @@ function CreateItem() {
   
       createItem();
     }).catch(error => {
-      
-     
+      console.error(error);
     });
   }
 
@@ -45,6 +41,9 @@ function CreateItem() {
         setPrice(0.00);
         setQuantity(0);
         alert("Item created successfully");
+        
+      
+        DisplayItem.getItem();
       })
       .catch((err) => console.error(err));
   }
@@ -54,8 +53,7 @@ function CreateItem() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-        checkItem() 
-          //createItem();
+          checkItem();
         }}
       >
         <h1>Inventory</h1>
@@ -83,8 +81,9 @@ function CreateItem() {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </label>
-        <button type="submit" class="btn btn-primary">Create Item</button>
-       
+        <button type="submit" className="btn btn-primary">
+          Create Item
+        </button>
       </form>
     </div>
   );
