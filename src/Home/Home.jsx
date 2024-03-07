@@ -22,7 +22,7 @@ function Home() {
                             <p>Mahatma Gandhi</p>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <h3>"The purpose of our lives is to be happy."</h3>
+                            <h5>"The purpose of our lives is to be happy."</h5>
                             <p>Dalai Lama</p>
                         </Carousel.Item>
                         <Carousel.Item>
@@ -38,13 +38,18 @@ function Home() {
                             <p>Nelson Mandela</p>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <h3>"Work harder, or else."</h3>
-                            <p>Estranged CEO Lucy Yates</p>
+                            <h5>"Work harder, or else."</h5>
+                            <p><i>Estranged</i> CEO Lucy Yates</p>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <h3>"It does not matter how slowly you go, as long as you do not stop."</h3>
+                            <h5>"It does not matter how slowly you go, as long as you do not stop."</h5>
                             <p>Confucius</p>
                         </Carousel.Item>
+                        <Carousel.Item>
+                            <h5>"Life's a journey, and I'm the captain of my own ship. No limits, no boundaries, just unstoppable energy. Mr. Worldwide, making every moment count!""</h5>
+                            <p>Pitbull</p>
+                        </Carousel.Item>
+                        
                         
                     </Carousel>
 
