@@ -57,6 +57,8 @@ function CreateItem() {
         }}
       >
         <h1>Inventory</h1>
+        <br/>
+        <br/>
         <label>
           Item Name
           <input
@@ -65,6 +67,7 @@ function CreateItem() {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
+        <br/>
         <label>
           Item Price
           <input
@@ -73,6 +76,7 @@ function CreateItem() {
             onChange={(e) => setPrice(e.target.value)}
           />
         </label>
+        <br/>
         <label>
           Item Quantity
           <input
@@ -81,6 +85,7 @@ function CreateItem() {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </label>
+        <br/>
         <button type="submit" className="btn btn-primary">
           Create Item
         </button>

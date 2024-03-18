@@ -91,22 +91,29 @@ function CreateCart() {
           checkCart();
         }}
       >
-        <h1>Baskets</h1>
+        <h1>Basket</h1>
         <label>
-          Customer
+          Name
+          <br/>
           <input
             type="text"
             value={customer}
             onChange={(e) => setCustomer(e.target.value)}
           />
         </label>
-        <button type="submit" className="btn btn-primary">Create Cart</button>
+        <br/>
+        <br/>
+        <button type="submit" className="btn btn-primary">Begin Shopping</button>
       </form>
+      <br/>
+      <br/>
 
       <form>
         <h2>Add Item to Cart</h2>
+        <br/>
         <label>
           Item Name
+          <br/>
           <select
             value={selectedItemId}
             onChange={(e) => setSelectedItemId(e.target.value)}
@@ -119,8 +126,13 @@ function CreateCart() {
             ))}
           </select>
         </label>
+      <br/>
+
         <label>
+        <br/>
           Select Cart
+          <br/>
+
           <select
             value={selectedCartId}
             onChange={(e) => setSelectedCartId(e.target.value)}
@@ -132,13 +144,18 @@ function CreateCart() {
               </option>
             ))}
           </select>
+          <br/>
+          
         </label>
+        <br/>
+        <br/>
         <button
           type="button"
           className="btn btn-success"
           onClick={addItemToCart}
         >
-          Add Item to Cart
+          Add Item
+        
         </button>
       </form>
     </div>
