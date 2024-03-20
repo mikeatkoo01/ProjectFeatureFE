@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import SocialFlow from './Socials';
-
+import footerlogo2 from '../footerlogo2.png'
 
 
 const Footer = () => {
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
           </div>
         </nav>
-        {/* <img src= alt="Your Logo" width="150" height="150" className="d-inline-block align-left" /> */}
+      
           <div className="d-flex align-items-center justify-content-center pb-5">
             <div className="col-md-6">
         
@@ -50,6 +50,7 @@ const Footer = () => {
               <SocialFlow/>
         
               <p>Application degined by liamike media</p>
+              <img src={footerlogo2} alt="Your Logo" width="100" height="60" className="d-inline-block align-left" />
             </div>
           </div>
         </footer>

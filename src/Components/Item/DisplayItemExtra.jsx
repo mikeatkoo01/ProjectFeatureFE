@@ -43,9 +43,9 @@ function DisplayItemExtra() {
             
                 <button
                   className="btn btn-primary"
-                  onClick={() => deleteItem(singleItem.id)}
+                  // onClick={() => deleteItem(singleItem.id)}
                 >
-                  ADD
+                  Shop Now
                 </button>
               </div>
             </div>
