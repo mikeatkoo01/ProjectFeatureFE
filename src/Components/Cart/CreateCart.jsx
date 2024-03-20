@@ -79,13 +79,14 @@ function CreateCart() {
       .then(() => {
         alert("Item added to cart successfully");
         fetchCartsAndItems(); 
+        window.location.reload();
       })
       .catch((err) => console.error(err));
   };
 
   return (
     <div>
-      <form
+      <form className="App"
         onSubmit={(e) => {
           e.preventDefault();
           checkCart();
@@ -108,12 +109,12 @@ function CreateCart() {
       <br/>
       <br/>
 
-      <form>
+      <form className="App">
         <h2>Add Item to Cart</h2>
         <br/>
         <label>
-          Item Name
-          <br/>
+         
+          
           <select
             value={selectedItemId}
             onChange={(e) => setSelectedItemId(e.target.value)}
@@ -126,12 +127,12 @@ function CreateCart() {
             ))}
           </select>
         </label>
-      <br/>
+        &nbsp;&nbsp;
 
         <label>
-        <br/>
-          Select Cart
-          <br/>
+       
+         
+          
 
           <select
             value={selectedCartId}
@@ -144,7 +145,7 @@ function CreateCart() {
               </option>
             ))}
           </select>
-          <br/>
+         
           
         </label>
         <br/>

@@ -9,7 +9,8 @@ import logo from './logo.png';
 import logo2 from './logo2.png'
 import Footer from './Home/Footer';
 import SocialFlow from './Home/Socials';
-
+import Contact from './Components/User/Contact';
+import Checkout from './Components/Cart/Checkout';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
                   <Link className="nav-link" to='/carts' style={{ color: '#dc3545' }}><b>Shop</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/carts' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
+                  <Link className="nav-link" to='/contactus' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
                 </li>
               
               </ul>
@@ -48,6 +49,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/items' element={<Item />} />
           <Route path='/carts' element={<Cart />} />
+          <Route path='/contactus' element={<Contact />} />
+          <Route path="/Checkout" element={<Checkout/>} />
+          
         </Routes>
         
         <Footer/>

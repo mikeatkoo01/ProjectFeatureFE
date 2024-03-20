@@ -10,7 +10,7 @@ const Footer = () => {
 
         <footer className="mb-0 text-center">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
+          <div className="App">
             <Link className="navbar-brand" to='/'>
             </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +48,7 @@ const Footer = () => {
                 <i className="fa fa-github"></i>
               </a>
               <SocialFlow/>
+        
               <p>Application degined by liamike media</p>
             </div>
           </div>

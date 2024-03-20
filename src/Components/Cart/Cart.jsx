@@ -1,6 +1,6 @@
 import CreateCart from "./CreateCart";
 import DisplayCart from "./DisplayCart";
-
+import DisplayItemExtra from "../Item/DisplayItemExtra";
 
 function Cart(){
 
@@ -9,6 +9,8 @@ function Cart(){
             <CreateCart/>
             <br></br>
             <DisplayCart/>
+            <DisplayItemExtra />
+            
         </div>
     );
 }

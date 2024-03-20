@@ -6,6 +6,7 @@ function CreateItem() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0.00);
   const [quantity, setQuantity] = useState(0);
+  const [url,setUrl] = useState("");
 
   function checkItem() {
     axios.get("http://localhost:8082/item/get").then((response) => {
@@ -50,7 +51,7 @@ function CreateItem() {
 
   return (
     <div>
-      <form
+      <form className="App"
         onSubmit={(e) => {
           e.preventDefault();
           checkItem();
@@ -68,6 +69,7 @@ function CreateItem() {
           />
         </label>
         <br/>
+        <br/>
         <label>
           Item Price
           <input
@@ -77,6 +79,7 @@ function CreateItem() {
           />
         </label>
         <br/>
+        <br/>
         <label>
           Item Quantity
           <input
@@ -85,6 +88,7 @@ function CreateItem() {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </label>
+        <br/>
         <br/>
         <button type="submit" className="btn btn-primary">
           Create Item
