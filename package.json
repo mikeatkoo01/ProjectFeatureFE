@@ -25,6 +25,7 @@
     "react-live-chat-loader": "^2.9.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-social-media-embed": "^2.5.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

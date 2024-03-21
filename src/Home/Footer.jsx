@@ -31,6 +31,9 @@ const Footer = () => {
                   <Link className="nav-link" to='/carts' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to='/register' style={{ color: '#dc3545' }}><b>Register</b></Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to='/carts' style={{ color: '#dc3545' }}><b>Site Map</b></Link>
                 </li>
                 <li className="nav-item">

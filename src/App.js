@@ -12,7 +12,7 @@ import SocialFlow from './Home/Socials';
 import Contact from './Components/User/Contact';
 import Checkout from './Components/Cart/Checkout';
 import Register from './Components/LogginAuth/Register';
-
+import InstaLive from './Components/User/InstaLive';
 function App() {
   return (
     <div className="container-fluid" style={{ backgroundColor: '#222', color: '#fff', minHeight: '100vh' }}>
@@ -42,6 +42,9 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to='/contactus' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to='/instagram' style={{ color: '#dc3545' }}><b>Follow us</b></Link>
+                </li>
               
               </ul>
             </div>
@@ -55,6 +58,8 @@ function App() {
           <Route path='/contactus' element={<Contact />} />
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/register" element={<Register/>}/>
+          <Route path="/instagram" element={<InstaLive/>}/>
+
           
           
         </Routes>
