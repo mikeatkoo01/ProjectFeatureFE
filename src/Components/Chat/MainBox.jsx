@@ -30,7 +30,7 @@ function MainBox(){
     }
 
     async function processMessageToChatGPT(chatMessages){
-        const API_KEY = "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"
+        // const API_KEY = "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"
         let apiMessages = chatMessages.map((messageObject)=>{
             let role="";
             if(messageObject.sender === "ChatGPT"){
@@ -59,7 +59,7 @@ function MainBox(){
         await fetch("https://api.openai.com/v1/chat/completions",{
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${API_KEY}`,
+                // "Authorization": `Bearer ${API_KEY}`,
                 "Content-Type": "application/json",
                 max_tokens: 10,
             },
