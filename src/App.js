@@ -40,7 +40,7 @@ function App() {
                   <Link className="nav-link" to='/register' style={{ color: '#dc3545' }}><b>Register</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/contactus' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
+                  <Link className="nav-link" to='/main' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to='/instagram' style={{ color: '#dc3545' }}><b>Follow us</b></Link>
@@ -55,7 +55,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/items' element={<Item />} />
           <Route path='/carts' element={<Cart />} />
-          <Route path='/contactus' element={<Contact />} />
+          <Route path='/main' element={<Contact />} />
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/register" element={<Register/>}/>
           <Route path="/instagram" element={<InstaLive/>}/>

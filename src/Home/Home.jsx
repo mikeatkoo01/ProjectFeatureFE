@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TeamPhoto from './TeamPhoto.png';
-import Login from './Login';
+// import Login from './Login';
+import Login from '../Components/LogginAuth/Login';
 import { Card, ListGroup, ListGroupItem, Carousel } from 'react-bootstrap';
+
 
 function Home() {
     const [isLoggedIn, setLoggedIn] = useState(false);

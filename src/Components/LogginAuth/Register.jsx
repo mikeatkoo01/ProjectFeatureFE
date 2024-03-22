@@ -76,7 +76,8 @@ const Register = () => {
             setMatchPwd('');
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('Succesfully created');
+                // this needs chnaging once back end is sorted
             } else if (err.response?.status === 409) {
                 setErrMsg('Username Taken');
             } else {
@@ -93,7 +94,7 @@ const Register = () => {
                 <section>
                     <h1>Success!</h1>
                     <p>
-                        <a href="#">Sign In</a>
+                    <a href="/">Sign in</a>
                         {/* react link to sign in */}
                     </p>
                 </section>
@@ -195,7 +196,7 @@ const Register = () => {
                         Already registered?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="#">Sign In</a>
+                            <a href="/">Sign in</a>
                             {/* react router link */}
                         </span>
                     </p>
