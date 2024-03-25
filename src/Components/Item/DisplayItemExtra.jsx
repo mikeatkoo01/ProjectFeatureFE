@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function DisplayItemExtra() {
   const [items, setItems] = useState([]);
+  const [selectedItemId, setSelectedItemId] = useState(null);
+  const [selectedCartId, setSelectedCartId] = useState(null);
 
   DisplayItemExtra.getItem = function () {
     axios
@@ -14,14 +17,21 @@ function DisplayItemExtra() {
       .catch(console.error);
   };
 
-  function deleteItem(itemId) {
-    axios
-      .delete(`http://localhost:8082/item/remove/${itemId}`)
-      .then(() => {
-        DisplayItemExtra.getItem();
-      })
-      .catch(console.error);
+  const AddItem = () => {
+  axios.patch(`http://localhost:8082/item/update/${selectedItemId}`, {
+    selectedItemId,
+    cart: {
+      id:1
+    }
+  })
+    .then(() => {
+      alert("Item added to cart successfully");
+      window.location.reload();
+    })
+    .catch((err) => console.error(err));
   }
+
+  
 
   useEffect(() => {
     DisplayItemExtra.getItem();
@@ -43,7 +53,7 @@ function DisplayItemExtra() {
             
                 <button
                   className="btn btn-primary"
-                  // onClick={() => deleteItem(singleItem.id)}
+                  onClick={() => AddItem(singleItem.id)}
                 ><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.142 4L6.01 16.136A1.002 1.002 0 0 0 7.016 17H18a1 1 0 0 0 .958-.713l3-10A1 1 0 0 0 21 5H6.32l-.33-2.138a.993.993 0 0 0-.346-.627a.997.997 0 0 0-.66-.235H3a1 1 0 1 0 0 2zm3.716 11l-1.23-8h13.028l-2.4 8zM10 20a2 2 0 1 1-4 0a2 2 0 0 1 4 0m9 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/></svg>
                   Shop Now
                 </button>
