@@ -11,13 +11,14 @@ import Footer from './Home/Footer';
 import SocialFlow from './Home/Socials';
 import Contact from './Components/User/Contact';
 import Checkout from './Components/Cart/Checkout';
-import Register from './Components/LogginAuth/Register';
+import Register from './Components/LoginAuth/Register';
 import InstaLive from './Components/User/InstaLive';
+
 function App() {
   return (
-    <div className="container-fluid" style={{ backgroundColor: '#222', color: '#fff', minHeight: '100vh' }}>
+    <div className="container-fluid" style={{ backgroundColor: 'green', color: '#fff', minHeight: '100vh' }}>
       <BrowserRouter>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-light">
           <div className="container">
             <Link className="navbar-brand" to='/'>
               <img src={logo2} alt="Your Logo" width="150" height="150" className="d-inline-block align-left" />
@@ -28,22 +29,22 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to='/' style={{ color: '#dc3545' }}><b>Home</b></Link>
+                  <Link className="nav-link" to='/' style={{ color: '#008631' }}><b>Home</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/items' style={{ color: '#dc3545', marginLeft: "10px" }}><b>Admin</b></Link>
+                  <Link className="nav-link" to='/items' style={{ color: '#008631', marginLeft: "10px" }}><b>Admin</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/carts' style={{ color: '#dc3545' }}><b>Shop</b></Link>
+                  <Link className="nav-link" to='/carts' style={{ color: '#008631' }}><b>Shop</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/register' style={{ color: '#dc3545' }}><b>Register</b></Link>
+                  <Link className="nav-link" to='/register' style={{ color: '#008631' }}><b>Register</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/contactus' style={{ color: '#dc3545' }}><b>Contact Us</b></Link>
+                  <Link className="nav-link" to='/contactus' style={{ color: '#008631' }}><b>Contact Us</b></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/instagram' style={{ color: '#dc3545' }}><b>Follow us</b></Link>
+                  <Link className="nav-link" to='/instagram' style={{ color: '#008631' }}><b>Follow us</b></Link>
                 </li>
               
               </ul>
@@ -59,9 +60,6 @@ function App() {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/register" element={<Register/>}/>
           <Route path="/instagram" element={<InstaLive/>}/>
-
-          
-          
         </Routes>
         
         <Footer/>

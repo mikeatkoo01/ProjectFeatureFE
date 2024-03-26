@@ -29,11 +29,11 @@ function DisplayItem() {
 
   return (
     <div className="container mt-4">
-      <h1>Item List</h1>
-      <div className="row">
+      <h1>Inventory List</h1>
+      <div className="row row-cols-1 row-cols-md-3">
         {items.map((singleItem) => (
-          <div key={singleItem.id} className="col-md-4 mb-4">
-            <div className="card">
+          <div key={singleItem.id} className="col mb-4">
+            <div className="card h-100">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
                 <p className="card-text">ID: {singleItem.id}</p>
@@ -55,3 +55,4 @@ function DisplayItem() {
 }
 
 export default DisplayItem;
+
