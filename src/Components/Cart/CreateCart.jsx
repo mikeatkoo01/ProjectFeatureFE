@@ -86,7 +86,7 @@ function CreateCart() {
 
   return (
     <div>
-      <form className="App"
+      <form className="right"
         onSubmit={(e) => {
           e.preventDefault();
           checkCart();
@@ -104,7 +104,8 @@ function CreateCart() {
         </label>
         <br/>
         <br/>
-        <button type="submit" className="btn btn-primary">Begin Shopping</button>
+        <button
+         type="submit" className="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.142 4L6.01 16.136A1.002 1.002 0 0 0 7.016 17H18a1 1 0 0 0 .958-.713l3-10A1 1 0 0 0 21 5H6.32l-.33-2.138a.993.993 0 0 0-.346-.627a.997.997 0 0 0-.66-.235H3a1 1 0 1 0 0 2zm3.716 11l-1.23-8h13.028l-2.4 8zM10 20a2 2 0 1 1-4 0a2 2 0 0 1 4 0m9 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/></svg>Begin Shopping</button>
       </form>
       <br/>
       <br/>
@@ -154,7 +155,7 @@ function CreateCart() {
           type="button"
           className="btn btn-success"
           onClick={addItemToCart}
-        >
+        ><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.142 4L6.01 16.136A1.002 1.002 0 0 0 7.016 17H18a1 1 0 0 0 .958-.713l3-10A1 1 0 0 0 21 5H6.32l-.33-2.138a.993.993 0 0 0-.346-.627a.997.997 0 0 0-.66-.235H3a1 1 0 1 0 0 2zm3.716 11l-1.23-8h13.028l-2.4 8zM10 20a2 2 0 1 1-4 0a2 2 0 0 1 4 0m9 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/></svg>
           Add Item
         
         </button>
