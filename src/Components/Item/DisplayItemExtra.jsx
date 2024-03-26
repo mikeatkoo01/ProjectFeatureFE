@@ -48,7 +48,7 @@ function DisplayItemExtra() {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
-                <p className="card-text">ID: {singleItem.url}</p>
+                
                 
                 <p className="card-text">Price: £{singleItem.price}</p>
             
