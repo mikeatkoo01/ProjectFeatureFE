@@ -61,10 +61,7 @@ const Register = () => {
         try {
             const response = await axios.post("http://localhost:8082/user/create",
                 JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
+              
             );
             // TODO: remove console.logs before deployment
             console.log(JSON.stringify(response?.data));
@@ -76,7 +73,7 @@ const Register = () => {
             setMatchPwd('');
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('succsessfully registered',({user}));
             } else if (err.response?.status === 409) {
                 setErrMsg('Username Taken');
             } else {
@@ -195,7 +192,7 @@ const Register = () => {
                         Already registered?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="#">Sign In</a>
+                            <a href="/">Sign In</a>
                             {/* react router link */}
                         </span>
                     </p>

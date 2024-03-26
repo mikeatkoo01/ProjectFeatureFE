@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TeamPhoto from './TeamPhoto.png';
-import Login from './Login';
+// import Login from './Login';
+// import Login from '../Components/LogginAuth/Login';
+import Login2 from '../Components/LoginAuth/Login';
 import { Card, ListGroup, ListGroupItem, Carousel } from 'react-bootstrap';
+
 
 function Home() {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -100,7 +103,7 @@ function Home() {
             ) : (
                 <Card border="danger" border-3>
                     <Card.Body className="text-center">
-                        <Card.Title><h1><b>REMINDER </b>to stay vigilant when logging in: </h1></Card.Title>
+                        <Card.Title><h1><b>Welcome </b>to stay vigilant when logging in: </h1></Card.Title>
                         <ListGroup>
                             <ListGroupItem>Secure Your Surroundings: Be cautious of your environment and ensure privacy when logging in. Avoid public spaces for sensitive logins.</ListGroupItem>
                             <ListGroupItem>Check for Suspicious Activity: Before entering credentials, verify the authenticity of the website or platform. Report any unusual prompts or requests.</ListGroupItem>
@@ -108,7 +111,8 @@ function Home() {
                             <ListGroupItem>Report Anomalies Promptly: If you notice anything unusual during the login process or suspect unauthorized access, report it immediately to our IT team.</ListGroupItem>
                         </ListGroup>
                        
-                        <Login onLogin={handleLogin} />
+                        {/* <Login onLogin={handleLogin} /> */}
+                        <Login2/>
                     </Card.Body>
                 </Card>
             )}
