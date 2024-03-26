@@ -39,7 +39,7 @@ function DisplayCart() {
 
   return (
     <div className="container mt-4">
-      <h1>Cart List</h1>
+      <h1>Customer List</h1>
       <div className="row row-cols-1 row-cols-md-3">
         {carts.map((singleCart) => (
           <div key={singleCart.id} className="col mb-4">
