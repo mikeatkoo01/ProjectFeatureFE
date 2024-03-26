@@ -99,7 +99,32 @@ const Register = () => {
                     {/* // error message for screen reader off screen*/}
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
-                    <form onSubmit={handleSubmit}>
+                                      <form onSubmit={e => {
+    e.preventDefault();
+    
+    axios.get("http://localhost:8082/user/read").then(response =>{
+    const existingUsers = response.data;
+    const exists = existingUsers.some(user => {return user.user === user && user.pwd === pwd; });
+    if (!exists) {
+
+    axios.post("http://localhost:8082/user/create", {user, pwd})
+      .then((response) =>{
+        console.log(response);
+        setUser("");
+        setPwd("");
+        setSuccess(`Welcome ${user}`)
+        alert(`Welcome ${user}`);  
+      }
+      )
+      .catch((err) => console.error(err));
+
+     } else {
+        console.log("User with the same name already exists");
+        alert("User with the same name already exists")
+    } 
+    })  .catch(err => console.error(err));
+
+}}>
                         <label htmlFor="username">
                             Username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
@@ -192,7 +217,7 @@ const Register = () => {
                         Already registered?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="/">Sign In</a>
+                            <Link to="/carts" className="btn btn-primary">Sign In</Link>
                             {/* react router link */}
                         </span>
                     </p>
