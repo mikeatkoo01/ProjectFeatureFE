@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Checkout() {
+function Checkout({ selectedCart }) {
   const [formData, setFormData] = useState({
     cardholderName: '',
     PAN: '',
@@ -16,7 +16,7 @@ function Checkout() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8082/checkout/create', formData)
+    axios.post('http://localhost:8082/checkout/create', { ...formData, cart: selectedCart })
       .then((response) => {
         console.log('Checkout created:', response.data);
         alert('You have now completed the order.');
@@ -35,45 +35,32 @@ function Checkout() {
   };
 
   return (
-    <div>
-      <h1>Card Details</h1>
-      <br />
-      <form style={{ fontSize: '15px' }} onSubmit={handleSubmit}>
-        <label>
-          Name: As it appears on the card
-          <br />
-          <input type="text" name="cardholderName" value={formData.cardholderName} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Long Card Number: PAN
-          <br />
-          <input type="text" name="PAN" value={formData.PAN} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Card Expiry Date: mm/yy
-          <br />
-          <input type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          CVC
-          <br />
-          <input type="text" name="CVC" value={formData.CVC} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Postcode
-          <br />
-          <input type="text" name="postCode" value={formData.postCode} onChange={handleChange} />
-        </label>
-
-        <div style={{ marginTop: '20px' }}>
-          <button className="btn btn-success btn-lg" type="submit">
-            Submit
-          </button>
+    <div className="container">
+      <h2>Payment Details</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Name: As it appears on the card</label>
+          <input type="text" className="form-control" name="cardholderName" value={formData.cardholderName} onChange={handleChange} />
         </div>
+        <div className="form-group">
+          <label>Long Card Number: PAN</label>
+          <input type="text" className="form-control" name="PAN" value={formData.PAN} onChange={handleChange} />
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Card Expiry Date: MM/YY </label>
+            <input type="text" className="form-control" name="expiryDate" value={formData.expiryDate} onChange={handleChange} />
+          </div>
+          <div className="form-group col-md-6">
+            <label>CVC</label>
+            <input type="text" className="form-control" name="CVC" value={formData.CVC} onChange={handleChange} />
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Postcode</label>
+          <input type="text" className="form-control" name="postCode" value={formData.postCode} onChange={handleChange} />
+        </div>
+        <button className="btn btn-success" type="submit">Submit</button>
       </form>
     </div>
   );
