@@ -92,9 +92,9 @@ function CreateCart() {
           checkCart();
         }}
       >
-        <h1>Basket</h1>
+        <h2><u>New Customer</u></h2>
         <label>
-          Name
+          <b>Name</b>
           <br/>
           <input
             type="text"
@@ -104,13 +104,13 @@ function CreateCart() {
         </label>
         <br/>
         <br/>
-        <button type="submit" className="btn btn-primary">Begin Shopping</button>
+        <button type="submit" className="btn btn-primary"><b>Create Customer</b></button>
       </form>
       <br/>
       <br/>
 
       <form className="App">
-        <h2>Add Item to Cart</h2>
+        <h2><u>Add Item to Order</u></h2>
         <br/>
         <label>
          
@@ -155,7 +155,7 @@ function CreateCart() {
           className="btn btn-success"
           onClick={addItemToCart}
         >
-          Add Item
+         <b>Add Item</b>
         
         </button>
       </form>
