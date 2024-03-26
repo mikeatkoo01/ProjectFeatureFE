@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function DisplayItemExtra() {
   const [items, setItems] = useState([]);
+  const [selectedItemId, setSelectedItemId] = useState(null);
+  const [selectedCartId, setSelectedCartId] = useState(null);
 
   DisplayItemExtra.getItem = function () {
     axios
@@ -14,14 +17,21 @@ function DisplayItemExtra() {
       .catch(console.error);
   };
 
-  function deleteItem(itemId) {
-    axios
-      .delete(`http://localhost:8082/item/remove/${itemId}`)
-      .then(() => {
-        DisplayItemExtra.getItem();
-      })
-      .catch(console.error);
+  const AddItem = () => {
+  axios.patch(`http://localhost:8082/item/update/${selectedItemId}`, {
+    selectedItemId,
+    cart: {
+      id: selectedCartId
+    }
+  })
+    .then(() => {
+      alert("Item added to cart successfully");
+      window.location.reload();
+    })
+    .catch((err) => console.error(err));
   }
+
+  
 
   useEffect(() => {
     DisplayItemExtra.getItem();
@@ -38,15 +48,11 @@ function DisplayItemExtra() {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
+                <p className="card-text">ID: {singleItem.url}</p>
                 
                 <p className="card-text">Price: £{singleItem.price}</p>
             
-                <button
-                  className="btn btn-primary"
-                  // onClick={() => deleteItem(singleItem.id)}
-                >
-                  Shop Now
-                </button>
+               
               </div>
             </div>
           </div>

@@ -37,6 +37,7 @@ function DisplayItem() {
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
                 <p className="card-text">ID: {singleItem.id}</p>
+                <p className="card-text">photo {singleItem.url}</p>
                 <p className="card-text">Price: £{singleItem.price}</p>
                 <p className="card-text">Quantity: {singleItem.quantity}</p>
                 <button

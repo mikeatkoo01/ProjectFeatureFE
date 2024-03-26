@@ -4,6 +4,7 @@ import DisplayItem from "./DisplayItem";
 
 function CreateItem() {
   const [name, setName] = useState("");
+  const [url,setUrl] = useState("")
   const [price, setPrice] = useState(0.00);
   const [quantity, setQuantity] = useState(0);
 
@@ -13,6 +14,7 @@ function CreateItem() {
         for (const item of response.data) {
           if (
             item.name &&
+            item.url &&
             item.price &&
             item.name.toLowerCase() === name.toLowerCase()
           ) {
@@ -31,12 +33,14 @@ function CreateItem() {
     axios
       .post("http://localhost:8082/item/create", {
         name,
+        url,
         price,
         quantity,
       })
       .then((response) => {
         console.log(response);
         setName("");
+        setUrl("");
         setPrice(0.00);
         setQuantity(0);
         alert("Item created successfully");
@@ -77,6 +81,16 @@ function CreateItem() {
             id="itemQuantity"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="itemUrl" className="form-label">Item Url</label>
+          <input
+            type="text"
+            className="form-control"
+            id="itemUrl"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
           />
         </div>
         <button type="submit" className="btn btn-primary">Create Item</button>
