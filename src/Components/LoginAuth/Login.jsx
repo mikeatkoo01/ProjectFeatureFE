@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "./context/AuthProvider";
-
-import axios from './api/axios';
+import AuthContext from './AuthProvider';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 const LOGIN_URL = '/auth';
 
 const Login = () => {
@@ -49,7 +49,8 @@ const Login = () => {
             } else if (err.response?.status === 401) {
                 setErrMsg('Unauthorized');
             } else {
-                setErrMsg('Login Failed');
+                setErrMsg('Succsess');
+                // this needs chnaging once i figure jwt out
             }
             errRef.current.focus();
         }
@@ -62,15 +63,40 @@ const Login = () => {
                     <h1>You are logged in!</h1>
                     <br />
                     <p>
-                        <a href="#">Go to Home</a>
+                     <Link to="/carts" className="btn btn-primary">Shop with us</Link>
                     </p>
                 </section>
             ) : (
                 <section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Sign In</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
+                    <br/><h1>Sign In</h1><br/>
+                    <form onSubmit={e => {
+    e.preventDefault();
+    
+    axios.get("http://localhost:8082/user/read").then(response =>{
+    const existingUsers = response.data;
+    const exists = existingUsers.some(user => {return user.user === user && user.pwd === pwd; });
+    if (!exists) {
+
+    axios.post("http://localhost:8082/user/create", {user, pwd})
+      .then((response) =>{
+        console.log(response);
+        setUser("");
+        setPwd("");
+        setSuccess(`Welcome ${user}`)
+        alert(`Welcome ${user}`);  
+      }
+      )
+      .catch((err) => console.error(err));
+
+     } else {
+        console.log("User with the same name already exists");
+        alert("User with the same name already exists")
+    } 
+    })  .catch(err => console.error(err));
+
+}}>
+                        <label htmlFor="username">Username:</label><br/>
                         <input
                             type="text"
                             id="username"
@@ -80,8 +106,9 @@ const Login = () => {
                             value={user}
                             required
                         />
+<br/>
 
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">Password:</label><br/>
                         <input
                             type="password"
                             id="password"
@@ -89,13 +116,16 @@ const Login = () => {
                             value={pwd}
                             required
                         />
+                        <br/>
+                        <br/>
+                        
                         <button>Sign In</button>
                     </form>
                     <p>
                         Need an Account?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="#">Sign Up</a>
+                            <Link to="/register" className="btn btn-primary">Sign up</Link>
                         </span>
                     </p>
                 </section>
