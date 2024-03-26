@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function DisplayItem() {
+function DisplayItemExtra() {
   const [items, setItems] = useState([]);
 
-  DisplayItem.getItem = function () {
+  DisplayItemExtra.getItem = function () {
     axios
       .get("http://localhost:8082/item/get")
       .then((response) => {
@@ -18,32 +18,34 @@ function DisplayItem() {
     axios
       .delete(`http://localhost:8082/item/remove/${itemId}`)
       .then(() => {
-        DisplayItem.getItem();
+        DisplayItemExtra.getItem();
       })
       .catch(console.error);
   }
 
   useEffect(() => {
-    DisplayItem.getItem();
+    DisplayItemExtra.getItem();
   }, []);
 
   return (
-    <div className="container mt-4">
-      <h1>Inventory List</h1>
-      <div className="row row-cols-1 row-cols-md-3">
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-6 bg">
+      <h4>Other shoppers have bought</h4>
+      <div className="row">
         {items.map((singleItem) => (
-          <div key={singleItem.id} className="col mb-4">
-            <div className="card h-100">
+          <div key={singleItem.id} className="col-md-4 mb-4">
+            <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
-                <p className="card-text">ID: {singleItem.id}</p>
+                
                 <p className="card-text">Price: £{singleItem.price}</p>
-                <p className="card-text">Quantity: {singleItem.quantity}</p>
+            
                 <button
-                  className="btn btn-danger"
-                  onClick={() => deleteItem(singleItem.id)}
+                  className="btn btn-primary"
+                  // onClick={() => deleteItem(singleItem.id)}
                 >
-                  Delete
+                  Shop Now
                 </button>
               </div>
             </div>
@@ -51,8 +53,9 @@ function DisplayItem() {
         ))}
       </div>
     </div>
+    </div>
+    </div>
   );
 }
 
-export default DisplayItem;
-
+export default DisplayItemExtra;

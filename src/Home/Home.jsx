@@ -54,7 +54,7 @@ function Home() {
                     </Carousel>
 
                   
-                    <Card border="danger" border-10>
+                    {/* <Card border="danger" border-10>
                         <Card.Body>
                             <Card.Title><h1>About Us: L²</h1></Card.Title>
                             <Card.Text>
@@ -95,7 +95,7 @@ function Home() {
                                 <ListGroupItem> 25/12/2024 - One Man Panto! - Celebrate Christmas Day in <i>style</i> with guest speaker Andrew Clark(e) hosting a Christmas panto! <b>(MANDATORY)</b></ListGroupItem>
                             </ListGroup>
                         </Card.Body>
-                    </Card>
+                    </Card> */}
                 </div>
             ) : (
                 <Card border="danger" border-3>
@@ -107,7 +107,7 @@ function Home() {
                             <ListGroupItem>Protect Your Passwords: Avoid sharing passwords and update them regularly. Strong, unique passwords are your first line of defense.</ListGroupItem>
                             <ListGroupItem>Report Anomalies Promptly: If you notice anything unusual during the login process or suspect unauthorized access, report it immediately to our IT team.</ListGroupItem>
                         </ListGroup>
-                        <img src={TeamPhoto} style={{ height: 300, width: 300, display: 'block', margin: 'auto' }} alt="Team" className="mx-auto d-block" />
+                       
                         <Login onLogin={handleLogin} />
                     </Card.Body>
                 </Card>
