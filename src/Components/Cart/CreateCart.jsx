@@ -60,7 +60,7 @@ function CreateCart() {
       setCustomer("");
       alert("Cart created successfully");
       fetchCartsAndItems(); 
-    })
+      window.location.reload(); })
     .catch((err) => console.error(err));
   };
 
