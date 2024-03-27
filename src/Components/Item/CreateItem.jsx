@@ -4,7 +4,7 @@ import DisplayItem from "./DisplayItem";
 
 function CreateItem() {
   const [name, setName] = useState("");
-  const [url,setUrl] = useState("")
+  const [url,setUrl] = useState("");
   const [price, setPrice] = useState(0.00);
   const [quantity, setQuantity] = useState(0);
 
