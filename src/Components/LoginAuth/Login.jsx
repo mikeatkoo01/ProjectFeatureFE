@@ -93,13 +93,15 @@ const Login = () => {
         console.log("User with the same name already exists");
         alert("User with the same name already exists")
     } 
-    })  .catch(err => console.error(err));
+    })  .catch(err => console.error(err))
+;
 
 }}>
                         <label htmlFor="username">Username:</label><br/>
                         <input
                             type="text"
                             id="username"
+                            aria-describedby="wheretoinputusername"
                             ref={userRef}
                             autoComplete="off"
                             onChange={(e) => setUser(e.target.value)}
@@ -111,6 +113,7 @@ const Login = () => {
                         <label htmlFor="password">Password:</label><br/>
                         <input
                             type="password"
+                            aria-describedby="wheretoinputpassword"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
@@ -119,13 +122,13 @@ const Login = () => {
                         <br/>
                         <br/>
                         
-                        <button>Sign In</button>
+                        <button aria-describedby="buttontosignin">Sign In</button>
                     </form>
                     <p>
                         Need an Account?<br />
                         <span className="line">
-                            {/*put router link here*/}
-                            <Link to="/register" className="btn btn-primary">Sign up</Link>
+                        
+                            <Link to="/register" className="btn btn-primary" aria-describedby="buttontosignup">Sign up</Link>
                         </span>
                     </p>
                 </section>

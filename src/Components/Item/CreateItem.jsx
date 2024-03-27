@@ -54,9 +54,10 @@ function CreateItem() {
       <h1 className="text-center">Inventory</h1>
       <form onSubmit={(e) => { e.preventDefault(); checkItem(); }}>
         <div className="mb-3">
-          <label htmlFor="itemName" className="form-label">Item Name</label>
+          <label htmlFor="itemName" aria-label="item name"className="form-label">Item Name</label>
           <input
             type="text"
+            aria-describedby="wheretoinputname"
             className="form-control"
             id="itemName"
             value={name}
@@ -67,6 +68,7 @@ function CreateItem() {
           <label htmlFor="itemPrice" className="form-label">Item Price</label>
           <input
             type="number"
+            aria-describedby="wheretoinputprice"
             className="form-control"
             id="itemPrice"
             value={price}
@@ -77,6 +79,7 @@ function CreateItem() {
           <label htmlFor="itemQuantity" className="form-label">Item Quantity</label>
           <input
             type="number"
+            aria-describedby="wheretoinputhowmany"
             className="form-control"
             id="itemQuantity"
             value={quantity}
@@ -87,13 +90,14 @@ function CreateItem() {
           <label htmlFor="itemUrl" className="form-label">Item Url</label>
           <input
             type="text"
+            aria-describedby="wheretoinputapicture"
             className="form-control"
             id="itemUrl"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary">Create Item</button>
+        <button type="submit" aria-describedby="submit button"className="btn btn-primary">Create Item</button>
       </form>
     </div>
   );
