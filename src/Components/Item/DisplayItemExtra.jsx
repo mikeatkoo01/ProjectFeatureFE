@@ -48,6 +48,10 @@ function DisplayItemExtra() {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
+
+                <img src={singleItem.url} alt="Product Image" style={{ width: '100px', height: '100px' }} />
+
+
                 
                 
                 <p className="card-text">Price: £{singleItem.price}</p>

@@ -103,7 +103,7 @@ function Home() {
             ) : (
                 <Card border="danger" border-3>
                     <Card.Body className="text-center">
-                        <Card.Title><h1><b>Welcome </b>to stay vigilant when logging in: </h1></Card.Title>
+                        <Card.Title><h1><b>Welcome </b> to <i>LiaMike Global Enterprises</i>, please remember to stay vigilant when logging in: </h1></Card.Title>
                         <ListGroup>
                             <ListGroupItem>Secure Your Surroundings: Be cautious of your environment and ensure privacy when logging in. Avoid public spaces for sensitive logins.</ListGroupItem>
                             <ListGroupItem>Check for Suspicious Activity: Before entering credentials, verify the authenticity of the website or platform. Report any unusual prompts or requests.</ListGroupItem>

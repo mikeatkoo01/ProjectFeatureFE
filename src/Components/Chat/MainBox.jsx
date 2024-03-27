@@ -84,7 +84,7 @@ function MainBox(){
     return (
         <div className="App">
             <h2>Please ask us about our products</h2>
-			<div className="response-area">
+			<div className="response-area" aria-label='openAIchatbox'>
                 {messages.map((message, index) => {
                     return(
                         <div className={message.sender==="ChatGPT" ? 'gpt-message message' : 'user-message message'}>{message.message}</div>
@@ -92,8 +92,8 @@ function MainBox(){
                 })}
             </div>
 			<div className="prompt-area">
-				<input type="text" placeholder="Send a message..." value={input} onChange={handleChange}/>
-				<button className="submit" type="submit" onClick={handleSend}>Send</button>
+				<input type="text" aria-describedby="input question" placeholder="Send a message..." value={input} onChange={handleChange}/>
+				<button className="submit" aria-describedby="submit button"type="submit" onClick={handleSend}>Send</button>
 			</div>
 		</div>
     );
