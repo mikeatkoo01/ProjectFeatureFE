@@ -36,7 +36,7 @@ function DisplayItem() {
             <div className="card h-100">
               <div className="card-body">
                 <h5 className="card-title">{singleItem.name}</h5>
-                <p className="card-text">ID: {singleItem.id}
+                <p className="card-text">ID: {singleItem.id}</p>
                 <img src={singleItem.url} alt="Product Image" style={{ width: '100px', height: '100px' }} />
 
        
